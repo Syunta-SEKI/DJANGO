@@ -1,0 +1,15 @@
+{% extends "base.html" %}<!-- 共通テンプレートの呼び出し -->
+{% load django_bootstrap5 %}<!--django-bootstrap5のカスタムテンプレートタグの読み込み-->
+
+{% block content %}
+    <h1>投稿の{{object|yesno:"編集、新規作成"}}</h1><!--新規と編集で表示を変更-->>
+    <form actiom="" method="post">{% csrf_token %}
+        {{ form.as_p }}<!--すべての項目を表示-->>
+        <button type="submit">{{object|yesno:"更新、作成"}}</button>
+    </form>
+
+    <div>
+        <button onclick="JavaScript:history.back()">戻る</button>
+    </div>
+
+{% endblock %}

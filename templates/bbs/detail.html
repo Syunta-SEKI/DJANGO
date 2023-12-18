@@ -1,0 +1,17 @@
+{% extends "base.html" %}<!-- 共通テンプレートの呼び出し -->
+{% load django_bootstrap5 %}<!--django-bootstrap5のカスタムテンプレートタグの読み込み-->
+
+{% block content %}
+    <h1>{{article.id}}の詳細投稿ページ</h1>
+    <div class="container">
+        <p>{{ article.id }}:{{ article.author }}:{{ article.created_at }}</p>
+        <p>最終更新:{{ article.updated_at}}</p><!--追記-->>
+        <p>{{ article.content }}</p>
+        <p><a href='{% url "bbs:update" article.pk %}'></a></p>
+    </div>
+        <p><a href='{% url "bbs:index" %}'>   
+        </a></p>
+
+{% endblock %}
+
+    
